@@ -23,7 +23,7 @@ const runStep = async ($: Engine, index: number) => {
 
 const mountBand = ($: Engine) =>
   $.ui.mount({
-    plugin: 'token-rate',
+    plugin: 'cc-metrics',
     surface: 'terminal',
     component: 'AbovePrompt',
     props: { hasSurvey: false, isWorking: false, maxRows: 10, bodyColumns: 77, scroll: { offset: 0, bodyRows: 10 }, view: {} },
@@ -41,7 +41,7 @@ test('a step passes its chunks and result through untouched and adds its four us
     usage: { input_tokens: 1, output_tokens: 2, cache_read_input_tokens: 3, cache_creation_input_tokens: 4, model: 'm' },
   } as const
   let writtenBuckets: unknown
-  on('state.set', { plugin: 'token-rate', key: 'buckets' }, async ($, e, next) => {
+  on('state.set', { plugin: 'cc-metrics', key: 'buckets' }, async ($, e, next) => {
     writtenBuckets = e.value
     return next(e)
   })
@@ -66,7 +66,7 @@ test('a step passes its chunks and result through untouched and adds its four us
 test("a step's write keeps the bucket at the start of the oldest 1h slice the narrowest chart reads", async ($, on) => {
   const clock = mock.clock(on, { now: (3_600_000 - 7200) * 1000 })
   let writtenBuckets = {}
-  on('state.set', { plugin: 'token-rate', key: 'buckets' }, async ($, e, next) => {
+  on('state.set', { plugin: 'cc-metrics', key: 'buckets' }, async ($, e, next) => {
     writtenBuckets = e.value
     return next(e)
   })

@@ -21,7 +21,7 @@ const CONTEXT_COLORS = [
   { belowPercent: Infinity, color: 'error' },
 ]
 
-const buckets = atom({ plugin: 'token-rate', key: 'buckets' } as const, {})
+const buckets = atom({ plugin: 'cc-metrics', key: 'buckets' } as const, {})
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {

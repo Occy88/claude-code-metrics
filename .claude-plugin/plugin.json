@@ -1,7 +1,7 @@
 {
-  "name": "token-rate",
+  "name": "cc-metrics",
   "version": "0.1.0",
-  "description": "Band above the prompt charting this session's tokens per time slice over the last 1m, 10m and 1h on a log scale, with window totals and context fill; /metrics shows or hides it",
+  "description": "Live token usage per time slice for this session and its subagents, plus context fill; toggle with /metrics",
   "author": { "name": "occy88" },
   "types": "./types/index.d.ts"
 }
