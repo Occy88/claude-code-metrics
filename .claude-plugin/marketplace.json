@@ -1,0 +1,6 @@
+{
+  "name": "claude-code-metrics",
+  "description": "Live token usage chart and context fill above the Claude Code prompt; toggle with /metrics",
+  "owner": { "name": "Occy88" },
+  "plugins": [{ "name": "token-rate", "source": "./" }]
+}

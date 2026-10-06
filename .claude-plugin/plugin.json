@@ -1,0 +1,7 @@
+{
+  "name": "token-rate",
+  "version": "0.1.0",
+  "description": "Band above the prompt charting this session's tokens per time slice over the last 1m, 10m and 1h on a log scale, with window totals and context fill; /metrics shows or hides it",
+  "author": { "name": "occy88" },
+  "types": "./types/index.d.ts"
+}
